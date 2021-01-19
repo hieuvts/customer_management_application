@@ -1,3 +1,4 @@
+import 'package:customer_management_application/userWidgets/danhSachKhachHang.dart';
 import 'package:customer_management_application/userWidgets/searchBar.dart';
 import 'package:flutter/material.dart';
 
@@ -8,8 +9,8 @@ class PhanLoaiThongTinKH extends StatefulWidget {
 }
 
 class _PhanLoaiThongTinKHState extends State<PhanLoaiThongTinKH> {
-  var _loaiKHDaChon = 'Loại khách hàng';
-  var _loaiThoiGianDaChon = 'Thời điểm liên hệ gần nhất';
+  var _loaiKHDaChon;
+  var _loaiThoiGianDaChon;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,24 +27,20 @@ class _PhanLoaiThongTinKHState extends State<PhanLoaiThongTinKH> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                //Text("Loại khách hàng"),
                 DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
                     value: _loaiKHDaChon,
-                    items: <String>[
-                      'Loại khách hàng',
-                      'Mới',
-                      'Đã mua hàng',
-                      'Đang cân nhắc'
-                    ].map<DropdownMenuItem<String>>((String value) {
+                    hint: Text('Loại khách hàng'),
+                    items: <String>['Mới', 'Đã mua hàng', 'Đang cân nhắc']
+                        .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: Text(value),
                       );
                     }).toList(),
-                    onChanged: (String value) {
+                    onChanged: (newvalue) {
                       setState(() {
-                        _loaiKHDaChon = value;
+                        _loaiKHDaChon = newvalue;
                       });
                     },
                   ),
@@ -56,20 +53,17 @@ class _PhanLoaiThongTinKHState extends State<PhanLoaiThongTinKH> {
                 DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
                     value: _loaiThoiGianDaChon,
-                    items: <String>[
-                      'Loại khách hàng',
-                      'Mới',
-                      'Đã mua hàng',
-                      'Đang cân nhắc'
-                    ].map<DropdownMenuItem<String>>((String value) {
+                    hint: Text('Lần liên hệ gần nhất'),
+                    items: <String>['A-Z', 'Z-A']
+                        .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: Text(value),
                       );
                     }).toList(),
-                    onChanged: (String value) {
+                    onChanged: (newvalue) {
                       setState(() {
-                        _loaiThoiGianDaChon = value;
+                        _loaiThoiGianDaChon = newvalue;
                       });
                     },
                   ),
@@ -77,7 +71,8 @@ class _PhanLoaiThongTinKHState extends State<PhanLoaiThongTinKH> {
               ],
             ),
           ),
-        )
+        ),
+        Expanded(child: DanhSachKhachHang()),
       ],
     );
   }
