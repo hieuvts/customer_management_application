@@ -1,6 +1,8 @@
 import 'package:customer_management_application/userWidgets/danhSachKhachHang.dart';
 import 'package:customer_management_application/userWidgets/searchBar.dart';
+import 'package:customer_management_application/userWidgets/verticalDivider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 //WF hiển thị danh sách khách hàng
 class PhanLoaiThongTinKH extends StatefulWidget {
@@ -30,7 +32,9 @@ class _PhanLoaiThongTinKHState extends State<PhanLoaiThongTinKH> {
                 DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
                     value: _loaiKHDaChon,
-                    hint: Text('Loại khách hàng'),
+                    hint: Text(
+                      'Loại khách hàng',
+                    ),
                     items: <String>['Mới', 'Đã mua hàng', 'Đang cân nhắc']
                         .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
@@ -45,11 +49,7 @@ class _PhanLoaiThongTinKHState extends State<PhanLoaiThongTinKH> {
                     },
                   ),
                 ),
-                Container(
-                  width: 1,
-                  height: 25,
-                  color: Colors.grey,
-                ),
+                verticalDivider(),
                 DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
                     value: _loaiThoiGianDaChon,
