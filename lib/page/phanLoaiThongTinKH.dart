@@ -2,7 +2,6 @@ import 'package:customer_management_application/userWidgets/danhSachKhachHang.da
 import 'package:customer_management_application/userWidgets/searchBar.dart';
 import 'package:customer_management_application/userWidgets/verticalDivider.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 //WF hiển thị danh sách khách hàng
 class PhanLoaiThongTinKH extends StatefulWidget {

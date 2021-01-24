@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        fontFamily: "Roboto",
+        fontFamily: "RobotoRegular",
       ),
       home: MyHomePage(title: 'Quản lí thông tin khách hàng'),
     );

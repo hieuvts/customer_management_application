@@ -1,7 +1,6 @@
-import 'package:customer_management_application/userWidgets/dropDownButton.dart';
-import 'package:customer_management_application/userWidgets/searchBar.dart';
 import 'package:customer_management_application/userWidgets/verticalDivider.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ChiTietThongTinKhachHang extends StatefulWidget {
   @override
@@ -53,8 +52,8 @@ class _ChiTietThongTinKhachHangState extends State<ChiTietThongTinKhachHang> {
                         // borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
                           'images/bradPitt.png',
-                          height: 60,
-                          width: 60,
+                          height: 70,
+                          width: 70,
                         ),
                       )
                     ],
@@ -62,7 +61,7 @@ class _ChiTietThongTinKhachHangState extends State<ChiTietThongTinKhachHang> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Phạm Như Hiếu"),
+                      Text("Phạm Như Hiếu", style: TextStyle(fontSize: 20)),
                       SizedBox(
                         height: 5,
                       ),
@@ -110,7 +109,7 @@ class _ChiTietThongTinKhachHangState extends State<ChiTietThongTinKhachHang> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       SizedBox(
-                        height: 45,
+                        height: 47,
                       ),
                       Text("14:00 11/12/2020"),
                     ],
@@ -128,293 +127,335 @@ class _ChiTietThongTinKhachHangState extends State<ChiTietThongTinKhachHang> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text("Thông tin cá nhân"),
+                  Text("Thông tin cá nhân",
+                      style: TextStyle(
+                        fontSize: 18,
+                      )),
                   verticalDivider(),
-                  Text("Lịch sử giao dịch")
+                  Text("Lịch sử giao dịch",
+                      style: TextStyle(
+                        fontSize: 18,
+                      ))
                 ],
               ),
             ),
             SizedBox(height: 10),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 10),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey, width: 1.0),
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text("Số điện thoại:"),
-                      SizedBox(width: 23),
-                      DropdownButtonHideUnderline(
-                        child: Container(
-                          padding: EdgeInsets.only(left: 10),
-                          height: _dropDownContainerHeight,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(2)),
-                          ),
-                          child: DropdownButton<String>(
-                            value: _dauSoDienThoai,
-                            hint: Text(
-                              '+84',
-                              style: _smallText,
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.all(6),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey, width: 1.0),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 1),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Số điện thoại:"),
+                        SizedBox(width: 23),
+                        DropdownButtonHideUnderline(
+                          child: Container(
+                            padding: EdgeInsets.only(left: 10),
+                            height: _dropDownContainerHeight,
+                            decoration: BoxDecoration(
+                              border:
+                                  Border.all(color: Colors.grey, width: 1.0),
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(2)),
                             ),
-                            items: <String>['+84', '+85', '+86']
-                                .map<DropdownMenuItem<String>>((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(
-                                  value,
-                                  style: TextStyle(fontSize: 11),
-                                ),
-                              );
-                            }).toList(),
-                            onChanged: (newvalue) {
-                              setState(() {
-                                _dauSoDienThoai = newvalue;
-                              });
-                            },
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 5),
-                      Container(
-                        width: 208,
-                        height: _dropDownContainerHeight,
-                        child: TextField(
-                          controller: _tecSoDienThoai,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: '        ',
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text("Email:"),
-                      SizedBox(width: 72),
-                      Container(
-                        width: 268,
-                        height: _dropDownContainerHeight,
-                        child: TextField(
-                          controller: _tecEmail,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: '        ',
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text("Địa chỉ:"),
-                      SizedBox(width: 65),
-                      Container(
-                        width: 267,
-                        height: _dropDownContainerHeight,
-                        child: TextField(
-                          controller: _tecDiaChi,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: '        ',
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(width: 112),
-                      DropdownButtonHideUnderline(
-                        child: Container(
-                          padding: EdgeInsets.only(left: 10),
-                          height: _dropDownContainerHeight,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(2)),
-                          ),
-                          child: DropdownButton<String>(
-                            value: _thanhPho,
-                            hint: Text(
-                              'TP.HCM',
-                              style: _smallText,
+                            child: DropdownButton<String>(
+                              value: _dauSoDienThoai,
+                              hint: Text(
+                                '+84',
+                                style: _smallText,
+                              ),
+                              items: <String>[
+                                '+84',
+                                '+85',
+                                '+86'
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(
+                                    value,
+                                  ),
+                                );
+                              }).toList(),
+                              onChanged: (newvalue) {
+                                setState(() {
+                                  _dauSoDienThoai = newvalue;
+                                });
+                              },
                             ),
-                            items: <String>['TP.HCM', 'Đồng Nai', 'TP.Đà Lạt']
-                                .map<DropdownMenuItem<String>>((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(
-                                  value,
-                                  style: TextStyle(fontSize: 11),
-                                ),
-                              );
-                            }).toList(),
-                            onChanged: (newvalue) {
-                              setState(() {
-                                _thanhPho = newvalue;
-                              });
-                            },
                           ),
                         ),
-                      ),
-                      DropdownButtonHideUnderline(
-                        child: Container(
-                          padding: EdgeInsets.only(left: 10),
+                        SizedBox(width: 10),
+                        Container(
+                          width: 200,
                           height: _dropDownContainerHeight,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(2)),
-                          ),
-                          child: DropdownButton<String>(
-                            value: _quan,
-                            hint: Text(
-                              'Thủ Đức',
-                              style: _smallText,
+                          child: TextField(
+                            controller: _tecSoDienThoai,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: '359545405',
                             ),
-                            items: <String>['Thủ Đức', 'Quận 9', 'Quận 3']
-                                .map<DropdownMenuItem<String>>((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(
-                                  value,
-                                  style: TextStyle(fontSize: 11),
-                                ),
-                              );
-                            }).toList(),
-                            onChanged: (newvalue) {
-                              setState(() {
-                                _quan = newvalue;
-                              });
-                            },
                           ),
                         ),
-                      ),
-                      DropdownButtonHideUnderline(
-                        child: Container(
-                          padding: EdgeInsets.only(left: 10),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Email:"),
+                        Container(
+                          width: 275,
                           height: _dropDownContainerHeight,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(2)),
-                          ),
-                          child: DropdownButton<String>(
-                            value: _huyen,
-                            hint: Text(
-                              'P.Linh Trung',
-                              style: _smallText,
+                          child: TextField(
+                            controller: _tecEmail,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: '17520482@gm.uit.edu.vn',
                             ),
-                            items: <String>[
-                              'P.Linh Trung',
-                              'P.Linh Đông',
-                              'P.Linh Tây'
-                            ].map<DropdownMenuItem<String>>((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(
-                                  value,
-                                  style: TextStyle(fontSize: 11),
-                                ),
-                              );
-                            }).toList(),
-                            onChanged: (newvalue) {
-                              setState(() {
-                                _huyen = newvalue;
-                              });
-                            },
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text("Ngày sinh:"),
-                      SizedBox(width: 70),
-                      Container(
-                        width: 244,
-                        height: _dropDownContainerHeight,
-                        child: TextField(
-                          controller: _tecNgaySinh,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: '        ',
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text("Giới tính:"),
-                      SizedBox(width: 80),
-                      DropdownButtonHideUnderline(
-                        child: Container(
-                          padding: EdgeInsets.only(left: 10),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Địa chỉ:"),
+                        Container(
+                          width: 275,
                           height: _dropDownContainerHeight,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(2)),
-                          ),
-                          child: DropdownButton<String>(
-                            value: _gioiTinh,
-                            hint: Text(
-                              'Nam',
-                              style: _smallText,
+                          child: TextField(
+                            controller: _tecDiaChi,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Kí túc xá khu B',
                             ),
-                            items: <String>['Nam', 'Nữ', 'Khác']
-                                .map<DropdownMenuItem<String>>((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(
-                                  value,
-                                  style: TextStyle(fontSize: 11),
-                                ),
-                              );
-                            }).toList(),
-                            onChanged: (newvalue) {
-                              setState(() {
-                                _gioiTinh = newvalue;
-                              });
-                            },
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text("Dịch vụ quan tâm:"),
-                      SizedBox(width: 20),
-                      Container(
-                        width: 247,
-                        height: _dropDownContainerHeight,
-                        child: TextField(
-                          controller: _tecDichVuQuanTam,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: '        ',
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(width: 112),
+                        DropdownButtonHideUnderline(
+                          child: Container(
+                            padding: EdgeInsets.only(left: 10),
+                            height: _dropDownContainerHeight,
+                            decoration: BoxDecoration(
+                              border:
+                                  Border.all(color: Colors.grey, width: 1.0),
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(2)),
+                            ),
+                            child: DropdownButton<String>(
+                              value: _thanhPho,
+                              hint: Text(
+                                'TP.HCM',
+                                style: _smallText,
+                              ),
+                              items: <String>[
+                                'TP.HCM',
+                                'Đồng Nai',
+                                'TP.Đà Lạt'
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(
+                                    value,
+                                    style: TextStyle(fontSize: 11),
+                                  ),
+                                );
+                              }).toList(),
+                              onChanged: (newvalue) {
+                                setState(() {
+                                  _thanhPho = newvalue;
+                                });
+                              },
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        DropdownButtonHideUnderline(
+                          child: Container(
+                            padding: EdgeInsets.only(left: 10),
+                            height: _dropDownContainerHeight,
+                            decoration: BoxDecoration(
+                              border:
+                                  Border.all(color: Colors.grey, width: 1.0),
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(2)),
+                            ),
+                            child: DropdownButton<String>(
+                              value: _quan,
+                              hint: Text(
+                                'Thủ Đức',
+                                style: _smallText,
+                              ),
+                              items: <String>[
+                                'Thủ Đức',
+                                'Quận 9',
+                                'Quận 3'
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(
+                                    value,
+                                    style: TextStyle(fontSize: 11),
+                                  ),
+                                );
+                              }).toList(),
+                              onChanged: (newvalue) {
+                                setState(() {
+                                  _quan = newvalue;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                        DropdownButtonHideUnderline(
+                          child: Container(
+                            padding: EdgeInsets.only(left: 10),
+                            height: _dropDownContainerHeight,
+                            decoration: BoxDecoration(
+                              border:
+                                  Border.all(color: Colors.grey, width: 1.0),
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(2)),
+                            ),
+                            child: DropdownButton<String>(
+                              value: _huyen,
+                              hint: Text(
+                                'P.Linh Trung',
+                                style: _smallText,
+                              ),
+                              items: <String>[
+                                'P.Linh Trung',
+                                'P.Linh Đông',
+                                'P.Linh Tây'
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(
+                                    value,
+                                    style: TextStyle(fontSize: 11),
+                                  ),
+                                );
+                              }).toList(),
+                              onChanged: (newvalue) {
+                                setState(() {
+                                  _huyen = newvalue;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Ngày sinh:"),
+                        Container(
+                          width: 275,
+                          height: _dropDownContainerHeight,
+                          child: TextField(
+                            controller: _tecNgaySinh,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: '29/01/1999',
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text("Giới tính:"),
+                        SizedBox(width: 58),
+                        DropdownButtonHideUnderline(
+                          child: Container(
+                            padding: EdgeInsets.only(left: 10),
+                            height: _dropDownContainerHeight,
+                            decoration: BoxDecoration(
+                              border:
+                                  Border.all(color: Colors.grey, width: 1.0),
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(2)),
+                            ),
+                            child: DropdownButton<String>(
+                              value: _gioiTinh,
+                              hint: Text(
+                                'Nam',
+                                style: _smallText,
+                              ),
+                              items: <String>[
+                                'Nam',
+                                'Nữ',
+                                'Khác'
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(
+                                    value,
+                                    style: TextStyle(fontSize: 11),
+                                  ),
+                                );
+                              }).toList(),
+                              onChanged: (newvalue) {
+                                setState(() {
+                                  _gioiTinh = newvalue;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Dịch vụ quan tâm:"),
+                        Container(
+                          width: 247,
+                          height: _dropDownContainerHeight,
+                          child: TextField(
+                            controller: _tecDichVuQuanTam,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Giao hàng tận nhà',
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 100),
+                  ],
+                ),
               ),
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.done, size: 30),
+        onPressed: () {
+          Fluttertoast.showToast(
+              msg: "Đã lưu các thay đổi", toastLength: Toast.LENGTH_LONG);
+          Navigator.pop(context);
+        },
       ),
     );
   }

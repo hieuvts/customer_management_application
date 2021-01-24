@@ -1,6 +1,5 @@
 import 'package:customer_management_application/page/chiTietThongTinKH.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DanhSachKhachHang extends StatefulWidget {
   @override
@@ -45,7 +44,7 @@ class _CustomCardViewState extends State<CustomCardView> {
   var _biggerText = TextStyle(fontSize: 14, fontFamily: "RobotoLight");
   Color _borderColor;
   var _smallSizedBox = SizedBox(
-    height: 4,
+    height: 10,
   );
   @override
   Widget build(BuildContext context) {
@@ -81,14 +80,14 @@ class _CustomCardViewState extends State<CustomCardView> {
                     // borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
                       widget._anhDaiDienKhachHang,
-                      height: 60,
-                      width: 60,
+                      height: 70,
+                      width: 70,
                     ),
                   ),
                 ],
               ),
               Spacer(
-                flex: 2,
+                flex: 4,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
