@@ -12,7 +12,7 @@ class _SearchBarState extends State<SearchBar> {
       children: <Widget>[
         Container(
           height: 32,
-          margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+          margin: const EdgeInsets.all(2),
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey, width: 1.0),
             color: Colors.white,
@@ -28,8 +28,8 @@ class _SearchBarState extends State<SearchBar> {
                   size: 25,
                 ),
                 border: InputBorder.none,
-                hintText: " ",
-                hintStyle: TextStyle(color: Colors.grey, fontSize: 18.0)),
+                hintText: " Search...",
+                hintStyle: TextStyle(color: Colors.grey, fontSize: 16.0)),
           ),
         ),
       ],

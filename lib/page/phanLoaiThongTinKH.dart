@@ -12,6 +12,7 @@ class PhanLoaiThongTinKH extends StatefulWidget {
 class _PhanLoaiThongTinKHState extends State<PhanLoaiThongTinKH> {
   var _loaiKHDaChon;
   var _loaiThoiGianDaChon;
+  var backgroundColor = Colors.grey[200];
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,7 +23,7 @@ class _PhanLoaiThongTinKHState extends State<PhanLoaiThongTinKH> {
           child: Container(
             decoration: BoxDecoration(
               border: Border.all(color: Colors.grey, width: 1.0),
-              color: Colors.white,
+              color: backgroundColor,
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             child: Row(

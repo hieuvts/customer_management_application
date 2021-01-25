@@ -46,6 +46,7 @@ class _CustomCardViewState extends State<CustomCardView> {
   var _smallSizedBox = SizedBox(
     height: 10,
   );
+  var backgroundColor = Colors.grey[200];
   @override
   Widget build(BuildContext context) {
     switch (widget._loaiKhachHang) {
@@ -69,7 +70,8 @@ class _CustomCardViewState extends State<CustomCardView> {
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         elevation: 3,
-        child: Padding(
+        child: Container(
+          color: backgroundColor,
           padding: const EdgeInsets.all(8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -123,7 +125,7 @@ class _CustomCardViewState extends State<CustomCardView> {
                     height: 35,
                     decoration: BoxDecoration(
                       border: Border.all(color: _borderColor, width: 2.0),
-                      color: Colors.white,
+                      color: backgroundColor,
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                     ),
                     child: Padding(

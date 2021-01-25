@@ -15,6 +15,7 @@ class _TheoDoiLichSuGiaoDichKHState extends State<TheoDoiLichSuGiaoDichKH> {
   String _donViTienTe;
   String _ngayLapHoaDon;
   var _smallerText4DropDownHint = TextStyle(fontSize: 10.5);
+  var backgroundColor = Colors.grey[200];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,15 +23,14 @@ class _TheoDoiLichSuGiaoDichKHState extends State<TheoDoiLichSuGiaoDichKH> {
       //   title: Text('Theo dõi lịch sử giao dịch khách hàng'),
       // ),
       body: Padding(
-        padding: EdgeInsets.all(5),
+        padding: EdgeInsets.all(6),
         child: new Column(
           children: [
             Container(
               padding: const EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey[300], width: 1.0),
-                color: Colors.grey[200],
-                //borderRadius: BorderRadius.all(Radius.circular(10)),
+                color: backgroundColor,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -85,7 +85,7 @@ class _TheoDoiLichSuGiaoDichKHState extends State<TheoDoiLichSuGiaoDichKH> {
             Container(
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey, width: 1.0),
-                color: Colors.white,
+                color: backgroundColor,
                 borderRadius: BorderRadius.all(Radius.circular(5)),
               ),
               child: Row(
@@ -107,8 +107,8 @@ class _TheoDoiLichSuGiaoDichKHState extends State<TheoDoiLichSuGiaoDichKH> {
             Container(
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey, width: 1.0),
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                color: backgroundColor,
+                borderRadius: BorderRadius.all(Radius.circular(5)),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -200,6 +200,7 @@ class _TheoDoiLichSuGiaoDichKHState extends State<TheoDoiLichSuGiaoDichKH> {
                 ],
               ),
             ),
+            SizedBox(height: 5),
             Expanded(child: DanhSachGiaoDich()),
           ],
         ),
