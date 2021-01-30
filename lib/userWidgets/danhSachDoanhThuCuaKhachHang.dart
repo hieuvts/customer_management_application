@@ -12,13 +12,8 @@ class _DanhSachDoanhThuCuaKhachHangState
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: 8,
-      itemBuilder: (context, index) => CustomCardView(
-          'images/bradPitt.png',
-          'Phạm Như Hiếu',
-          '20.200.000',
-          'Nhóm khách hàng',
-          'Việt nam đồng',
-          'Giờ'),
+      itemBuilder: (context, index) => CustomCardView('images/bradPitt.png',
+          'Đỗ Nam Trung', '16.000.000', 'Mới', 'VNĐ', 'Tuần'),
     );
   }
 }
@@ -48,8 +43,22 @@ class _CustomCardViewState extends State<CustomCardView> {
     height: 10,
   );
   var backgroundColor = Colors.grey[200];
+  Color _tinhTrangKHColor;
   @override
   Widget build(BuildContext context) {
+    switch (widget._nhomKhachHang) {
+      case 'Mới':
+        _tinhTrangKHColor = Colors.red;
+        break;
+      case 'Đã mua hàng':
+        _tinhTrangKHColor = Colors.green;
+        break;
+      case 'Đang cân nhắc':
+        _tinhTrangKHColor = Colors.purple[400];
+        break;
+      default:
+        _tinhTrangKHColor = Colors.red;
+    }
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       elevation: 3,
@@ -87,26 +96,26 @@ class _CustomCardViewState extends State<CustomCardView> {
                   children: [
                     Text(
                       widget._tenKhachHang,
-                      style: _biggerText,
+                      style: TextStyle(fontSize: 16),
                     ),
                     SizedBox(height: 20),
                     Text(
-                      widget._tongDoanhThu,
+                      "Tổng doanh thu: ${widget._tongDoanhThu}",
                       style: _biggerText,
                     ),
                     _smallSizedBox,
                     Text(
-                      widget._nhomKhachHang,
+                      "Nhóm khách hàng: ${widget._nhomKhachHang}",
                       style: _biggerText,
                     ),
                     _smallSizedBox,
                     Text(
-                      widget._donViTienTe,
+                      "Đơn vị tiền tệ: ${widget._donViTienTe}",
                       style: _biggerText,
                     ),
                     _smallSizedBox,
                     Text(
-                      widget._donViThoiGian,
+                      "Đơn vị thời gian: ${widget._donViThoiGian}",
                       style: _biggerText,
                     ),
                     _smallSizedBox,

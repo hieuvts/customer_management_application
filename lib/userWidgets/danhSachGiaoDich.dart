@@ -133,7 +133,8 @@ class _CustomCardViewState extends State<CustomCardView> {
                       _smallSizedBox,
                       Text(
                         widget._tinhTrangThanhToan,
-                        style: _biggerText,
+                        style: TextStyle(
+                            fontSize: 16, color: _tinhTrangThanhToanColor),
                       ),
                       _smallSizedBox,
                       Text(

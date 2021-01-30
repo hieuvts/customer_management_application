@@ -47,9 +47,12 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedPage,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Customer"),
-          BottomNavigationBarItem(icon: Icon(Icons.history), label: "History"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.list), label: "Phân loại khách hàng"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.history), label: "Lịch sử giao dịch"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.bar_chart), label: "Thống kê doanh thu"),
         ],
         onTap: (index) {
           this.setState(() {
