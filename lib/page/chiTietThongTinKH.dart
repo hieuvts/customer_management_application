@@ -1,3 +1,5 @@
+import 'package:customer_management_application/page/lichSuGiaoDich2.dart';
+import 'package:customer_management_application/page/theoDoiLichSuGiaoDichKH.dart';
 import 'package:customer_management_application/userWidgets/verticalDivider.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -61,7 +63,7 @@ class _ChiTietThongTinKhachHangState extends State<ChiTietThongTinKhachHang> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Phạm Như Hiếu", style: TextStyle(fontSize: 20)),
+                      Text("Đỗ Nam Trung", style: TextStyle(fontSize: 20)),
                       SizedBox(
                         height: 5,
                       ),
@@ -132,10 +134,16 @@ class _ChiTietThongTinKhachHangState extends State<ChiTietThongTinKhachHang> {
                         fontSize: 18,
                       )),
                   verticalDivider(),
-                  Text("Lịch sử giao dịch",
-                      style: TextStyle(
-                        fontSize: 18,
-                      ))
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(new MaterialPageRoute(
+                          builder: (context) => TheoDoiLichSuGiaoDichKH2()));
+                    },
+                    child: Text("Lịch sử giao dịch",
+                        style: TextStyle(
+                          fontSize: 18,
+                        )),
+                  )
                 ],
               ),
             ),

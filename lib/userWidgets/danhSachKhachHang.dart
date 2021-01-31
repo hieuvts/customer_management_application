@@ -13,8 +13,8 @@ class _DanhSachKhachHangState extends State<DanhSachKhachHang> {
       itemCount: 8,
       itemBuilder: (context, index) => CustomCardView(
           'images/bradPitt.png',
-          'Phạm Như Hiếu',
-          '0359545405',
+          'Đỗ Nam Trung',
+          '0359544658',
           '17520482@gm.uit.edu.vn',
           'Vận chuyển sản phẩm tận nhà',
           null),
@@ -96,7 +96,7 @@ class _CustomCardViewState extends State<CustomCardView> {
                 children: [
                   Text(
                     widget._tenKhachHang,
-                    style: _biggerText,
+                    style: TextStyle(fontSize: 16, fontFamily: "RobotoLight"),
                   ),
                   _smallSizedBox,
                   Text(
